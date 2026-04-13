@@ -889,10 +889,23 @@
           { url: "https://www.youtube.com/watch?v=ElRmXn1mNPU&t=4s", label: "액션 클립 09" },
           { url: "https://www.youtube.com/watch?v=7zQCN2S4nH4", label: "액션 클립 10" },
         ],
-        acting: [],
-        ad: [],
-        mocap: [],
-        vlog: [],
+        acting: [
+          { url: "https://www.youtube.com/watch?v=XeTl6mrA1e8", label: "[연기연습] 감정훈련" },
+          { url: "https://www.youtube.com/watch?v=6ZkiGFDn02Y", label: "연기 02" },
+          { url: "https://www.youtube.com/watch?v=89psqV3IIno", label: "연기 03" },
+        ],
+        ad: [
+          { url: "https://www.youtube.com/watch?v=XeTl6mrA1e8", label: "광고 01" },
+          { url: "https://www.youtube.com/watch?v=6ZkiGFDn02Y", label: "광고 02" },
+        ],
+        mocap: [
+          { url: "https://www.youtube.com/watch?v=89psqV3IIno", label: "모캡 01" },
+          { url: "https://www.youtube.com/watch?v=XeTl6mrA1e8", label: "모캡 02" },
+        ],
+        vlog: [
+          { url: "https://www.youtube.com/watch?v=6ZkiGFDn02Y", label: "VLOG 01" },
+          { url: "https://www.youtube.com/watch?v=89psqV3IIno", label: "VLOG 02" },
+        ],
         profile: [],
       };
 
@@ -1043,6 +1056,31 @@
           delete all.action;
           saveAll(all);
           localStorage.setItem(EMPTY_ACTION_RESTORE_FLAG, "1");
+        } catch (e) {}
+      }
+
+      /** 연기·광고·모캡·브이로그 가 빈 배열로만 저장된 경우 기본 샘플이 보이도록 한 번 정리 */
+      var EMPTY_OTHER_CLIPS_RESTORE_FLAG = "imseungjun_cliprows_empty_acting_ad_mocap_vlog_v1";
+      function migrateEmptyOtherClipArraysToDefaults() {
+        try {
+          if (localStorage.getItem(EMPTY_OTHER_CLIPS_RESTORE_FLAG)) return;
+          var all = loadAll();
+          if (!all) return;
+          var cats = ["acting", "ad", "mocap", "vlog"];
+          var changed = false;
+          for (var i = 0; i < cats.length; i++) {
+            var c = cats[i];
+            if (
+              Object.prototype.hasOwnProperty.call(all, c) &&
+              Array.isArray(all[c]) &&
+              all[c].length === 0
+            ) {
+              delete all[c];
+              changed = true;
+            }
+          }
+          if (changed) saveAll(all);
+          localStorage.setItem(EMPTY_OTHER_CLIPS_RESTORE_FLAG, "1");
         } catch (e) {}
       }
 
@@ -1516,6 +1554,7 @@
       }
 
       migrateEmptyActionArrayToDefaults();
+      migrateEmptyOtherClipArraysToDefaults();
       migrateAdClipsToActionStorage();
 
       document.querySelectorAll("[data-clip-cat]").forEach(function (row) {

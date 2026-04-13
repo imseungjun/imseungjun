@@ -959,6 +959,76 @@
         setItems(cat, copy);
       }
 
+      /** 예전 액션 클립 기본값에 쓰이던 YouTube 영상 ID (광고 칸에 잘못 들어간 항목 복구용) */
+      var LEGACY_ACTION_VIDEO_IDS = {
+        XeTl6mrA1e8: true,
+        "6ZkiGFDn02Y": true,
+        "89psqV3IIno": true,
+        "6_ywDE0Jsb4": true,
+        Q0FsodfWqgU: true,
+        "rzZq-vBX6oY": true,
+        "8OzFIGwsPZI": true,
+        bACczlADI_s: true,
+        ElRmXn1mNPU: true,
+        "7zQCN2S4nH4": true,
+      };
+
+      function shouldMoveAdLabelToAction(label) {
+        var s = (label || "").trim();
+        if (!s) return false;
+        if (/^광고/i.test(s)) return false;
+        if (/^(칼\s*액션|액션클립|액션\s*클립|맨손|무술)/i.test(s)) return true;
+        if (/액션|무술|칼|맨손|피지컬/i.test(s)) return true;
+        return false;
+      }
+
+      var MIGRATE_AD_TO_ACTION_FLAG = "imseungjun_cliprows_migrated_ad_v1";
+
+      /** 광고 칸에 잘못 저장된 액션형 클립을 액션 칸으로 한 번 되돌립니다. */
+      function migrateAdClipsToActionStorage() {
+        try {
+          if (localStorage.getItem(MIGRATE_AD_TO_ACTION_FLAG)) return;
+          var all = loadAll();
+          if (!all || !Array.isArray(all.ad) || all.ad.length === 0) {
+            localStorage.setItem(MIGRATE_AD_TO_ACTION_FLAG, "1");
+            return;
+          }
+          var moved = [];
+          var keep = [];
+          for (var i = 0; i < all.ad.length; i++) {
+            var it = all.ad[i];
+            if (!it) continue;
+            var url = (it.url || "").trim();
+            var label = (it.label || "").trim();
+            var vid = parseYoutubeId(url);
+            var byId = vid && LEGACY_ACTION_VIDEO_IDS[vid];
+            var byLabel = shouldMoveAdLabelToAction(label);
+            if (byId || byLabel) {
+              moved.push({ url: url || "#", label: label || "" });
+            } else {
+              keep.push(it);
+            }
+          }
+          if (moved.length > 0) {
+            all.ad = keep;
+            if (!Array.isArray(all.action)) all.action = [];
+            for (var j = 0; j < moved.length; j++) {
+              all.action.push(moved[j]);
+            }
+            saveAll(all);
+          }
+          localStorage.setItem(MIGRATE_AD_TO_ACTION_FLAG, "1");
+        } catch (e) {}
+      }
+
+      function setDragPayload(e, cat, index) {
+        e.dataTransfer.setData(
+          "text/plain",
+          JSON.stringify({ cat: cat, index: index })
+        );
+        e.dataTransfer.effectAllowed = "move";
+      }
+
       function editItem(cat, index) {
         var items = getItems(cat);
         var item = items[index];
@@ -970,6 +1040,15 @@
         if (lab === null) return;
         lab = (lab || "").trim();
         items[index] = { url: u, label: lab || item.label };
+        setItems(cat, items);
+        render(cat);
+      }
+
+      function removeItem(cat, index) {
+        var items = getItems(cat);
+        if (index < 0 || index >= items.length) return;
+        if (!window.confirm("이 클립을 삭제할까요?")) return;
+        items.splice(index, 1);
         setItems(cat, items);
         render(cat);
       }
@@ -1096,12 +1175,24 @@
             editItem(cat, index);
           });
 
+          var delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "clip-item__delete clip-item__delete--card";
+          delBtn.setAttribute("aria-label", "클립 삭제");
+          delBtn.title = "삭제";
+          delBtn.textContent = "×";
+          delBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            removeItem(cat, index);
+          });
+
           wrap.appendChild(a);
+          wrap.appendChild(delBtn);
           wrap.appendChild(editBtn);
 
           wrap.addEventListener("dragstart", function (e) {
-            e.dataTransfer.setData("text/plain", String(index));
-            e.dataTransfer.effectAllowed = "move";
+            setDragPayload(e, cat, index);
             wrap.classList.add("clip-item--dragging");
           });
           wrap.addEventListener("dragend", function () {
@@ -1187,14 +1278,26 @@
             editItem(cat, index);
           });
 
+          var delBtnP = document.createElement("button");
+          delBtnP.type = "button";
+          delBtnP.className = "clip-item__delete clip-item__delete--profile";
+          delBtnP.setAttribute("aria-label", "클립 삭제");
+          delBtnP.title = "삭제";
+          delBtnP.textContent = "×";
+          delBtnP.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            removeItem(cat, index);
+          });
+
           thumb.appendChild(a);
+          thumb.appendChild(delBtnP);
           thumb.appendChild(editBtn);
           wrap.appendChild(thumb);
           wrap.appendChild(cap);
 
           wrap.addEventListener("dragstart", function (e) {
-            e.dataTransfer.setData("text/plain", String(index));
-            e.dataTransfer.effectAllowed = "move";
+            setDragPayload(e, cat, index);
             wrap.classList.add("clip-item--dragging");
           });
           wrap.addEventListener("dragend", function () {
@@ -1287,14 +1390,26 @@
             editItem(cat, index);
           });
 
+          var delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "clip-item__delete";
+          delBtn.setAttribute("aria-label", "클립 삭제");
+          delBtn.title = "삭제";
+          delBtn.textContent = "×";
+          delBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            removeItem(cat, index);
+          });
+
           thumb.appendChild(a);
+          thumb.appendChild(delBtn);
           thumb.appendChild(editBtn);
           wrap.appendChild(thumb);
           wrap.appendChild(caption);
 
           wrap.addEventListener("dragstart", function (e) {
-            e.dataTransfer.setData("text/plain", String(index));
-            e.dataTransfer.effectAllowed = "move";
+            setDragPayload(e, cat, index);
             wrap.classList.add("clip-item--dragging");
           });
           wrap.addEventListener("dragend", function () {
@@ -1350,13 +1465,32 @@
           var dropEl = e.target.closest(".clip-item");
           if (!dropEl) return;
           e.preventDefault();
-          var from = parseInt(e.dataTransfer.getData("text/plain"), 10);
+          var raw = e.dataTransfer.getData("text/plain");
+          var payload;
+          try {
+            payload = JSON.parse(raw);
+          } catch (err) {
+            return;
+          }
+          if (
+            !payload ||
+            typeof payload.cat !== "string" ||
+            typeof payload.index !== "number"
+          ) {
+            return;
+          }
+          if (payload.cat !== cat) {
+            return;
+          }
+          var from = payload.index;
           var to = parseInt(dropEl.dataset.index, 10);
           if (isNaN(from) || isNaN(to) || from === to) return;
           moveItem(cat, from, to);
           render(cat);
         });
       }
+
+      migrateAdClipsToActionStorage();
 
       document.querySelectorAll("[data-clip-cat]").forEach(function (row) {
         var cat = row.getAttribute("data-clip-cat");

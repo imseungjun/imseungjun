@@ -44,6 +44,22 @@
 
 ### 방법 A — GitHub Pages (무료, 고정 주소)
 
+#### 이 저장소에 있는 한 번에 올리기 (Windows)
+
+계정이 **`imseungjun`** 인 경우, 아래 배치 파일을 사용하면 됩니다.
+
+1. 이 폴더에서 **`깃허브에올리기.bat`** 을 더블클릭합니다.
+2. 열리는 GitHub 페이지에서 저장소 이름 **`imseungjun-profile`** 이 맞는지 확인한 뒤 **Create** 합니다.  
+   (README, .gitignore, license 는 **추가하지 마세요**.)
+3. 배치 파일이 안내한 대로 키를 누르면 `git push` 가 실행됩니다.
+
+완료 후 저장소 주소: `https://github.com/imseungjun/imseungjun-profile`  
+Pages 설정 후 공개 주소: `https://imseungjun.github.io/imseungjun-profile/`
+
+다른 GitHub 아이디를 쓰는 경우, `깃허브에올리기.bat` 안의 `imseungjun`을 본인 아이디로 바꾸고, 저장소 이름도 같이 바꾸면 됩니다.
+
+#### 수동으로 할 때
+
 1. [GitHub](https://github.com)에 로그인하고 **새 저장소(repository)** 를 만듭니다. (이름은 영문·숫자 권장, 예: `im-seungjun-page`)
 2. PC에서 이 폴더를 Git 저장소로 연 뒤 GitHub에 **push** 합니다.  
    (이미 이 폴더에 `.git`이 있다면 원격만 추가하면 됩니다.)

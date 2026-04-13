@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#010101" />
+  <title>ACTOR IMSEUMGJUN — 임승준</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="#">ACTOR IMSEUMGJUN</a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="#art-zone">예술영역</a>
+        <a href="#essay-zone">책·에세이</a>
+        <a href="#music-zone">음악</a>
+        <div class="site-nav__dropdown">
+          <button type="button" class="site-nav__dropdown-btn" id="nav-business-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-business-menu">
+            비즈니스
+          </button>
+          <div class="site-nav__dropdown-menu" id="nav-business-menu" role="menu" hidden>
+            <a href="#business-beauty" class="site-nav__dropdown-link" role="menuitem">뷰티</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero hero--with-banner" aria-label="메인 비주얼">
+    <div class="hero__bg">
+      <div class="hero__study" aria-hidden="true"></div>
+      <div class="hero__bg-overlay" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+    </div>
+    <div class="hero__content hero__content--image">
+      <h1 class="visually-hidden">ACTOR IMSEUMGJUN — Rolling, again</h1>
+      <img
+        class="hero__banner"
+        src="assets/hero-banner.png"
+        alt="Rolling, again — Unscripted moments with IMSEUMGJUN"
+        width="1024"
+        height="226"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <main class="main">
+    <!-- 예술영역: 프로필 · 프로필 사진 그리드 -->
+    <section id="art-zone" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 예술영역</h2>
+        <p class="zone__hint">연기·액션·영상·이미지로 이어지는 배우 임승준의 예술 활동을 모았습니다.</p>
+      </div>
+
+      <div id="profile-zone" class="profile-section">
+      <div class="profile-block profile-block--video-bg profile-block--full-bleed">
+        <div class="profile-block__bg" aria-hidden="true">
+          <div class="profile-block__video-wrap">
+            <div id="profile-yt-player"></div>
+          </div>
+          <div class="profile-block__bg-overlay"></div>
+        </div>
+        <div class="profile-block__inner">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 프로필</h2>
+        <p class="zone__hint">대표 프로필과 필모그래피 요약입니다.</p>
+      </div>
+
+      <div class="profile-split">
+        <div
+          class="profile-split__photo profile-split__photo--interactive profile-split__photo--with-video"
+          id="profile-photo-wrap"
+          role="group"
+          aria-label="메인 프로필 사진"
+        >
+          <input type="file" id="profile-photo-file" class="visually-hidden" accept="image/*" tabindex="-1" />
+          <div class="profile-photo-yt-wrap" id="profile-photo-yt-wrap">
+            <iframe
+              id="profile-photo-main-yt"
+              class="profile-photo-yt"
+              title="YouTube Shorts — 임승준 프로필"
+              src="https://www.youtube.com/embed/_PEwQJYEHCo?autoplay=1&mute=1&playsinline=1&controls=1&rel=0&modestbranding=1&loop=1&playlist=_PEwQJYEHCo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="eager"
+            ></iframe>
+          </div>
+          <img
+            src="assets/main-profile.png?v=2"
+            alt="배우 임승준 프로필 메인 사진"
+            width="480"
+            height="640"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            class="profile-split__img"
+            id="profile-photo-img"
+          />
+          <div class="profile-photo-toolbar" role="toolbar" aria-label="메인 프로필 사진 도구">
+            <button type="button" class="profile-photo-btn" id="profile-photo-pick">이미지 선택</button>
+            <button type="button" class="profile-photo-btn" id="profile-photo-edit">편집</button>
+            <button type="button" class="profile-photo-btn" id="profile-photo-reset">원본으로</button>
+          </div>
+        </div>
+        <div class="profile-split__body">
+          <div class="profile-name-row">
+            <div class="profile-name-row__avatar" aria-hidden="true">
+              <img
+                class="profile-name-row__avatar-img"
+                src="assets/profile-avatar.png"
+                alt=""
+                width="120"
+                height="120"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="profile-name-row__text">
+              <p class="profile-split__name-ko">임승준</p>
+              <p class="profile-split__name-en">Im Seung-jun</p>
+            </div>
+          </div>
+          <dl class="profile-meta">
+            <div><dt>학력</dt><dd>서울예술대학교 연기과 학사</dd></div>
+            <div><dt>출생</dt><dd>1988년생</dd></div>
+            <div><dt>신장</dt><dd>180cm</dd></div>
+            <div><dt>무술·액션</dt><dd>태권도 4단, 우슈 4단, 합기도 4단, 마샬아츠, 복싱 프로선수, 주짓수 등</dd></div>
+            <div><dt>특기</dt><dd>중국어, 중국무술</dd></div>
+          </dl>
+          <div class="profile-career">
+            <h3 class="profile-career__title">드라마</h3>
+            <ul class="profile-career__list">
+              <li>2007 KBS <cite>거침없이 하이킥</cite></li>
+              <li>2015 KBS <cite>힐러</cite> — 윤발 역</li>
+              <li>2016 한중 <cite>레전드히어로 삼국전</cite> — 손책 역</li>
+              <li>2018 중국 텐센트TV <cite>커피프린스</cite> — 아강 역</li>
+              <li>2018 tvN <cite>백일의 낭군님</cite> — 범이 역</li>
+              <li>2020 <cite>하와유 브레드</cite> — 채병 역</li>
+              <li>2021 웹드라마 <cite>세계의 보석</cite> — 승준 역</li>
+              <li>2023 KBS <cite>오아시스</cite> — 울프 역</li>
+            </ul>
+            <h3 class="profile-career__title">영화</h3>
+            <ul class="profile-career__list">
+              <li>2015 <cite>강남1970</cite> — 명동파</li>
+              <li>2016 <cite>Eternity</cite> — 뱀파이어헌터</li>
+              <li><cite>내안의 그놈</cite> — 경호원1</li>
+              <li>2019 <cite>천승</cite> — 천승 역</li>
+              <li>2020 <cite>조선주먹</cite> — 철호 역</li>
+              <li>2020 <cite>붉은 안개속의 서울</cite> — 현우 역</li>
+              <li>2020 <cite>Money Fight</cite></li>
+              <li>2022 <cite>마녀2</cite> — 로컬요원</li>
+              <li>2023 <cite>베테랑2</cite></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <details class="profile-photos-details" id="profile-photos-details" open>
+        <summary
+          class="profile-photos-details__summary"
+          aria-expanded="false"
+          aria-controls="profile-photos-panel"
+        >
+          <div class="zone__subhead profile-photos-details__head">
+            <h3 class="zone__subtitle"><span class="zone__mark">::</span> 프로필 사진</h3>
+            <p class="zone__hint">
+              대표 인물 사진 59장 · 처음에는 한 줄만 보입니다. 헤더를 누르면 전체가 펼쳐집니다. 썸네일 클릭 시 새 탭에서 원본을 볼 수 있습니다. 아래 「추가 링크」에서 YouTube·이미지 URL을 더할 수 있습니다.
+            </p>
+          </div>
+          <span class="profile-photos-details__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="profile-photos-details__panel" id="profile-photos-panel">
+        <div class="grid grid--photos" id="profile-photos">
+        <a class="thumb thumb--photo" href="assets/profile/01.png" target="_blank" rel="noopener" aria-label="프로필 사진 1"><img src="assets/profile/01.png" alt="프로필 사진 1" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/02.png" target="_blank" rel="noopener" aria-label="프로필 사진 2"><img src="assets/profile/02.png" alt="프로필 사진 2" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/03.png" target="_blank" rel="noopener" aria-label="프로필 사진 3"><img src="assets/profile/03.png" alt="프로필 사진 3" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/04.png" target="_blank" rel="noopener" aria-label="프로필 사진 4"><img src="assets/profile/04.png" alt="프로필 사진 4" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/05.png" target="_blank" rel="noopener" aria-label="프로필 사진 5"><img src="assets/profile/05.png" alt="프로필 사진 5" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/06.png" target="_blank" rel="noopener" aria-label="프로필 사진 6"><img src="assets/profile/06.png" alt="프로필 사진 6" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/07.png" target="_blank" rel="noopener" aria-label="프로필 사진 7"><img src="assets/profile/07.png" alt="프로필 사진 7" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/08.png" target="_blank" rel="noopener" aria-label="프로필 사진 8"><img src="assets/profile/08.png" alt="프로필 사진 8" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/09.png" target="_blank" rel="noopener" aria-label="프로필 사진 9"><img src="assets/profile/09.png" alt="프로필 사진 9" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/10.png" target="_blank" rel="noopener" aria-label="프로필 사진 10"><img src="assets/profile/10.png" alt="프로필 사진 10" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/11.png" target="_blank" rel="noopener" aria-label="프로필 사진 11"><img src="assets/profile/11.png" alt="프로필 사진 11" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/12.png" target="_blank" rel="noopener" aria-label="프로필 사진 12"><img src="assets/profile/12.png" alt="프로필 사진 12" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/13.png" target="_blank" rel="noopener" aria-label="프로필 사진 13"><img src="assets/profile/13.png" alt="프로필 사진 13" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/14.png" target="_blank" rel="noopener" aria-label="프로필 사진 14"><img src="assets/profile/14.png" alt="프로필 사진 14" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/15.png" target="_blank" rel="noopener" aria-label="프로필 사진 15"><img src="assets/profile/15.png" alt="프로필 사진 15" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/16.png" target="_blank" rel="noopener" aria-label="프로필 사진 16"><img src="assets/profile/16.png" alt="프로필 사진 16" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/17.png" target="_blank" rel="noopener" aria-label="프로필 사진 17"><img src="assets/profile/17.png" alt="프로필 사진 17" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/18.png" target="_blank" rel="noopener" aria-label="프로필 사진 18"><img src="assets/profile/18.png" alt="프로필 사진 18" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/19.png" target="_blank" rel="noopener" aria-label="프로필 사진 19"><img src="assets/profile/19.png" alt="프로필 사진 19" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/20.png" target="_blank" rel="noopener" aria-label="프로필 사진 20"><img src="assets/profile/20.png" alt="프로필 사진 20" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/21.png" target="_blank" rel="noopener" aria-label="프로필 사진 21"><img src="assets/profile/21.png" alt="프로필 사진 21" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/22.png" target="_blank" rel="noopener" aria-label="프로필 사진 22"><img src="assets/profile/22.png" alt="프로필 사진 22" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/23.png" target="_blank" rel="noopener" aria-label="프로필 사진 23"><img src="assets/profile/23.png" alt="프로필 사진 23" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/24.png" target="_blank" rel="noopener" aria-label="프로필 사진 24"><img src="assets/profile/24.png" alt="프로필 사진 24" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/25.png" target="_blank" rel="noopener" aria-label="프로필 사진 25"><img src="assets/profile/25.png" alt="프로필 사진 25" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/26.png" target="_blank" rel="noopener" aria-label="프로필 사진 26"><img src="assets/profile/26.png" alt="프로필 사진 26" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/27.png" target="_blank" rel="noopener" aria-label="프로필 사진 27"><img src="assets/profile/27.png" alt="프로필 사진 27" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/28.png" target="_blank" rel="noopener" aria-label="프로필 사진 28"><img src="assets/profile/28.png" alt="프로필 사진 28" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/29.png" target="_blank" rel="noopener" aria-label="프로필 사진 29"><img src="assets/profile/29.png" alt="프로필 사진 29" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/30.png" target="_blank" rel="noopener" aria-label="프로필 사진 30"><img src="assets/profile/30.png" alt="프로필 사진 30" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/31.png" target="_blank" rel="noopener" aria-label="프로필 사진 31"><img src="assets/profile/31.png" alt="프로필 사진 31" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/32.png" target="_blank" rel="noopener" aria-label="프로필 사진 32"><img src="assets/profile/32.png" alt="프로필 사진 32" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/33.png" target="_blank" rel="noopener" aria-label="프로필 사진 33"><img src="assets/profile/33.png" alt="프로필 사진 33" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/34.png" target="_blank" rel="noopener" aria-label="프로필 사진 34"><img src="assets/profile/34.png" alt="프로필 사진 34" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/35.png" target="_blank" rel="noopener" aria-label="프로필 사진 35"><img src="assets/profile/35.png" alt="프로필 사진 35" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/36.png" target="_blank" rel="noopener" aria-label="프로필 사진 36"><img src="assets/profile/36.png" alt="프로필 사진 36" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/37.png" target="_blank" rel="noopener" aria-label="프로필 사진 37"><img src="assets/profile/37.png" alt="프로필 사진 37" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/38.png" target="_blank" rel="noopener" aria-label="프로필 사진 38"><img src="assets/profile/38.png" alt="프로필 사진 38" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/39.png" target="_blank" rel="noopener" aria-label="프로필 사진 39"><img src="assets/profile/39.png" alt="프로필 사진 39" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/40.png" target="_blank" rel="noopener" aria-label="프로필 사진 40"><img src="assets/profile/40.png" alt="프로필 사진 40" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/41.png" target="_blank" rel="noopener" aria-label="프로필 사진 41"><img src="assets/profile/41.png" alt="프로필 사진 41" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/42.png" target="_blank" rel="noopener" aria-label="프로필 사진 42"><img src="assets/profile/42.png" alt="프로필 사진 42" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/43.png" target="_blank" rel="noopener" aria-label="프로필 사진 43"><img src="assets/profile/43.png" alt="프로필 사진 43" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/44.png" target="_blank" rel="noopener" aria-label="프로필 사진 44"><img src="assets/profile/44.png" alt="프로필 사진 44" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/45.png" target="_blank" rel="noopener" aria-label="프로필 사진 45"><img src="assets/profile/45.png" alt="프로필 사진 45" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/46.png" target="_blank" rel="noopener" aria-label="프로필 사진 46"><img src="assets/profile/46.png" alt="프로필 사진 46" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/47.png" target="_blank" rel="noopener" aria-label="프로필 사진 47"><img src="assets/profile/47.png" alt="프로필 사진 47" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/48.png" target="_blank" rel="noopener" aria-label="프로필 사진 48"><img src="assets/profile/48.png" alt="프로필 사진 48" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/49.png" target="_blank" rel="noopener" aria-label="프로필 사진 49"><img src="assets/profile/49.png" alt="프로필 사진 49" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/50.png" target="_blank" rel="noopener" aria-label="프로필 사진 50"><img src="assets/profile/50.png" alt="프로필 사진 50" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/51.png" target="_blank" rel="noopener" aria-label="프로필 사진 51"><img src="assets/profile/51.png" alt="프로필 사진 51" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/53.png" target="_blank" rel="noopener" aria-label="프로필 사진 53"><img src="assets/profile/53.png" alt="프로필 사진 53" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/54.png" target="_blank" rel="noopener" aria-label="프로필 사진 54"><img src="assets/profile/54.png" alt="프로필 사진 54" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/55.png" target="_blank" rel="noopener" aria-label="프로필 사진 55"><img src="assets/profile/55.png" alt="프로필 사진 55" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/56.png" target="_blank" rel="noopener" aria-label="프로필 사진 56"><img src="assets/profile/56.png" alt="프로필 사진 56" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/57.png" target="_blank" rel="noopener" aria-label="프로필 사진 57"><img src="assets/profile/57.png" alt="프로필 사진 57" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/58.png" target="_blank" rel="noopener" aria-label="프로필 사진 58"><img src="assets/profile/58.png" alt="프로필 사진 58" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/59.png" target="_blank" rel="noopener" aria-label="프로필 사진 59"><img src="assets/profile/59.png" alt="프로필 사진 59" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        <a class="thumb thumb--photo" href="assets/profile/60.png" target="_blank" rel="noopener" aria-label="프로필 사진 60"><img src="assets/profile/60.png" alt="프로필 사진 60" loading="lazy" width="200" height="200" class="thumb__img" /></a>
+        </div>
+        <p class="profile-photos-extra-hint">추가 링크 (YouTube·이미지 URL) — ✎로 수정, 드래그로 순서 변경</p>
+        <div
+          class="grid grid--photos clip-row"
+          id="clip-row-profile"
+          data-clip-cat="profile"
+          role="list"
+          aria-label="추가 프로필 링크"
+        ></div>
+        </div>
+      </details>
+      </div>
+    </section>
+
+    <section id="clips-action" class="zone clips-action-zone">
+      <h2 class="visually-hidden">액션 클립</h2>
+      <div class="zone__head clips-action-zone__head">
+        <button
+          type="button"
+          class="clips-action-zone__toggle"
+          id="clips-action-toggle"
+          aria-expanded="false"
+          aria-controls="clips-action-grid"
+        >
+          <span class="clips-action-zone__btn-text">
+            <span class="zone__title clips-action-zone__title"><span class="zone__mark">::</span> 액션 클립</span>
+            <span class="zone__hint clips-action-zone__hint">무술·액션·피지컬이 드러나는 영상입니다. 제목을 눌러 전체 목록을 펼칠 수 있습니다. 「링크 추가」로 영상을 더할 수 있으며, ✎로 수정·드래그로 순서를 바꿀 수 있습니다.</span>
+          </span>
+          <span class="clips-action-zone__chevron" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div
+        class="clip-grid clip-grid--collapsible is-collapsed clip-row"
+        id="clips-action-grid"
+        role="list"
+        data-clip-cat="action"
+        data-clip-layout="card"
+        aria-label="액션 클립 목록"
+      ></div>
+    </section>
+
+    <section id="clips-acting" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 연기 클립</h2>
+        <p class="zone__hint">감정선·캐릭터 연기 중심 영상입니다. +로 링크를 추가하고, 드래그로 순서를 바꾸며 ✎로 수정합니다.</p>
+      </div>
+      <div class="grid grid--clips clip-row" id="clip-row-acting" data-clip-cat="acting" role="list" aria-label="연기 클립 목록"></div>
+    </section>
+
+    <section id="clips-ad" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 광고 클립</h2>
+        <p class="zone__hint">브랜드·캠페인 영상입니다.</p>
+      </div>
+      <div class="grid grid--clips clip-row" id="clip-row-ad" data-clip-cat="ad" role="list" aria-label="광고 클립 목록"></div>
+    </section>
+
+    <section id="clips-mocap" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 모션캡쳐 클립</h2>
+        <p class="zone__hint">모션캡처·퍼포먼스 관련 영상입니다.</p>
+      </div>
+      <div class="grid grid--clips clip-row" id="clip-row-mocap" data-clip-cat="mocap" role="list" aria-label="모션캡쳐 클립 목록"></div>
+    </section>
+
+    <section id="clips-vlog" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 브이로그 · 일상</h2>
+        <p class="zone__hint">비하인드·일상 기록 영상입니다.</p>
+      </div>
+      <div class="grid grid--clips clip-row" id="clip-row-vlog" data-clip-cat="vlog" role="list" aria-label="브이로그 클립 목록"></div>
+    </section>
+
+    <section id="essay-zone" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 책·에세이</h2>
+        <p class="zone__hint">글·에세이·출간 및 집필 관련 소식은 이 영역에 추가할 수 있습니다.</p>
+      </div>
+      <p class="zone__placeholder">콘텐츠 준비 중입니다.</p>
+    </section>
+
+    <section id="music-zone" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 음악</h2>
+        <p class="zone__hint">음악 활동·음원·공연 등 관련 소식은 이 영역에 추가할 수 있습니다.</p>
+      </div>
+      <p class="zone__placeholder">콘텐츠 준비 중입니다.</p>
+    </section>
+
+    <section id="business-zone" class="zone">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 비즈니스</h2>
+        <p class="zone__hint">브랜드·협업·비즈니스 관련 안내입니다.</p>
+      </div>
+      <section id="business-beauty" class="zone--nested">
+        <div class="zone__head">
+          <h3 class="zone__title zone__title--sub"><span class="zone__mark">::</span> 뷰티</h3>
+          <p class="zone__hint">뷰티 브랜드·캠페인·촬영 문의 등을 이곳에 정리할 수 있습니다.</p>
+        </div>
+        <p class="zone__placeholder">콘텐츠 준비 중입니다.</p>
+      </section>
+    </section>
+
+    <section id="contact" class="zone zone--footer-block">
+      <div class="zone__head">
+        <h2 class="zone__title"><span class="zone__mark">::</span> 문의</h2>
+        <p class="zone__hint">매니지먼트·출연 문의는 이메일 또는 SNS로 연락 주세요.</p>
+      </div>
+      <p class="contact-placeholder">이메일 · SNS 링크는 추후 입력</p>
+    </section>
+
+    <dialog id="profile-photo-edit-dialog" class="profile-photo-edit-dialog" aria-labelledby="profile-photo-edit-title">
+      <div class="profile-photo-edit-dialog__inner">
+        <h3 id="profile-photo-edit-title" class="profile-photo-edit-dialog__title">프로필 사진 편집</h3>
+        <p class="profile-photo-edit-dialog__hint">밝기·대비·회전을 조절한 뒤 적용을 누르면 이 브라우저에 저장됩니다.</p>
+        <div class="profile-photo-edit-preview-outer">
+          <div class="profile-photo-edit-preview-wrap" id="profile-photo-edit-preview-rot">
+            <img id="profile-photo-edit-preview" alt="" width="480" height="640" />
+          </div>
+        </div>
+        <div class="profile-photo-edit-sliders">
+          <label class="profile-photo-edit-label">
+            <span>밝기</span>
+            <input type="range" id="edit-brightness" min="50" max="150" value="100" />
+            <span class="profile-photo-edit-value" id="edit-brightness-val">100%</span>
+          </label>
+          <label class="profile-photo-edit-label">
+            <span>대비</span>
+            <input type="range" id="edit-contrast" min="50" max="150" value="100" />
+            <span class="profile-photo-edit-value" id="edit-contrast-val">100%</span>
+          </label>
+          <label class="profile-photo-edit-label">
+            <span>회전</span>
+            <input type="range" id="edit-rotation" min="0" max="359" value="0" />
+            <span class="profile-photo-edit-value" id="edit-rotation-val">0°</span>
+          </label>
+        </div>
+        <div class="profile-photo-edit-dialog__actions">
+          <button type="button" class="profile-photo-btn profile-photo-btn--primary" id="edit-apply">적용</button>
+          <button type="button" class="profile-photo-btn" id="edit-cancel">취소</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="y"></span> ACTOR IMSEUMGJUN · 임승준</p>
+  </footer>
+  <script>
+    function buildYtPlayerVars() {
+      var o = window.location.origin;
+      var vars = {
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        rel: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        iv_load_policy: 3,
+        disablekb: 1,
+        fs: 0,
+        enablejsapi: 1
+      };
+      if (o && o !== "null" && /^https?:\/\//i.test(o)) {
+        vars.origin = o;
+      }
+      return vars;
+    }
+
+    window.onYouTubeIframeAPIReady = function () {
+      var profileVideoId = "ElRmXn1mNPU";
+      var profileStartSec = 5;
+      var baseVars = buildYtPlayerVars();
+
+      var profileVars = Object.assign({}, baseVars, {
+        loop: 1,
+        playlist: profileVideoId
+      });
+
+      new YT.Player("profile-yt-player", {
+        videoId: profileVideoId,
+        width: "100%",
+        height: "100%",
+        playerVars: profileVars,
+        events: {
+          onReady: function (e) {
+            try {
+              e.target.mute();
+              e.target.seekTo(profileStartSec, true);
+              e.target.playVideo();
+            } catch (err) {}
+          },
+          onStateChange: function (e) {
+            if (e.data === YT.PlayerState.ENDED) {
+              try {
+                e.target.seekTo(profileStartSec, true);
+                e.target.playVideo();
+              } catch (err2) {}
+            }
+          }
+        }
+      });
+    };
+  </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    (function () {
+      var STORAGE_KEY = "actorProfileMainPhotoV1";
+      var img = document.getElementById("profile-photo-img");
+      var wrap = document.getElementById("profile-photo-wrap");
+      var fileInput = document.getElementById("profile-photo-file");
+      var btnPick = document.getElementById("profile-photo-pick");
+      var btnEdit = document.getElementById("profile-photo-edit");
+      var btnReset = document.getElementById("profile-photo-reset");
+      var dialog = document.getElementById("profile-photo-edit-dialog");
+      var editPreview = document.getElementById("profile-photo-edit-preview");
+      var editPreviewRot = document.getElementById("profile-photo-edit-preview-rot");
+      var editBrightness = document.getElementById("edit-brightness");
+      var editContrast = document.getElementById("edit-contrast");
+      var editRotation = document.getElementById("edit-rotation");
+      var editBrightnessVal = document.getElementById("edit-brightness-val");
+      var editContrastVal = document.getElementById("edit-contrast-val");
+      var editRotationVal = document.getElementById("edit-rotation-val");
+      var btnApply = document.getElementById("edit-apply");
+      var btnCancel = document.getElementById("edit-cancel");
+      if (!img || !wrap) return;
+
+      var DEFAULT_PROFILE_SRC = "assets/main-profile.png?v=2";
+
+      function absUrl(rel) {
+        try {
+          return new URL(rel, window.location.href).href;
+        } catch (e) {
+          return rel;
+        }
+      }
+
+      function showOk() {
+        img.style.display = "";
+        img.removeAttribute("aria-hidden");
+        wrap.classList.remove("profile-split__photo--empty");
+        wrap.classList.remove("profile-split__photo--video");
+        if (btnEdit) btnEdit.disabled = false;
+      }
+
+      function showVideoOnly() {
+        img.style.display = "none";
+        img.setAttribute("aria-hidden", "true");
+        wrap.classList.remove("profile-split__photo--empty");
+        wrap.classList.add("profile-split__photo--video");
+        if (btnEdit) btnEdit.disabled = true;
+      }
+
+      function loadDefaultProfilePhoto() {
+        img.onload = function () {
+          showOk();
+        };
+        img.onerror = function () {
+          showVideoOnly();
+        };
+        img.src = absUrl(DEFAULT_PROFILE_SRC);
+        img.alt = "배우 임승준 프로필 메인 사진";
+        if (img.complete && img.naturalWidth > 0) showOk();
+      }
+
+      function persistDataUrl(dataUrl) {
+        try {
+          localStorage.setItem(STORAGE_KEY, dataUrl);
+        } catch (e) {
+          window.alert("저장 공간이 부족합니다. 더 작은 이미지를 사용해 주세요.");
+          throw e;
+        }
+      }
+
+      function compressDataUrl(dataUrl, maxSide, quality, done) {
+        var image = new Image();
+        image.onload = function () {
+          var w = image.naturalWidth;
+          var h = image.naturalHeight;
+          if (w < 1 || h < 1) {
+            done(dataUrl);
+            return;
+          }
+          var scale = Math.min(1, maxSide / Math.max(w, h));
+          var cw = Math.round(w * scale);
+          var ch = Math.round(h * scale);
+          var canvas = document.createElement("canvas");
+          canvas.width = cw;
+          canvas.height = ch;
+          var ctx = canvas.getContext("2d");
+          if (!ctx) {
+            done(dataUrl);
+            return;
+          }
+          ctx.drawImage(image, 0, 0, cw, ch);
+          var out = canvas.toDataURL("image/jpeg", quality);
+          done(out.length < dataUrl.length ? out : dataUrl);
+        };
+        image.onerror = function () {
+          done(dataUrl);
+        };
+        image.src = dataUrl;
+      }
+
+      function applyImageDataUrl(dataUrl) {
+        try {
+          persistDataUrl(dataUrl);
+        } catch (err) {
+          return;
+        }
+        img.onload = function () {
+          showOk();
+        };
+        img.onerror = function () {
+          showVideoOnly();
+        };
+        img.src = dataUrl;
+        img.alt = "배우 임승준 프로필 메인 사진";
+        if (img.complete && img.naturalWidth > 0) showOk();
+      }
+
+      function loadFromFile(file) {
+        if (!file || !/^image\//.test(file.type)) {
+          window.alert("이미지 파일만 넣을 수 있습니다.");
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+          var raw = reader.result;
+          compressDataUrl(raw, 1600, 0.88, function (compressed) {
+            applyImageDataUrl(compressed);
+          });
+        };
+        reader.onerror = function () {
+          window.alert("파일을 읽지 못했습니다.");
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function syncEditPreviewFilters() {
+        var b = editBrightness ? Number(editBrightness.value) : 100;
+        var c = editContrast ? Number(editContrast.value) : 100;
+        if (editPreview) {
+          editPreview.style.filter = "brightness(" + b + "%) contrast(" + c + "%)";
+        }
+        if (editBrightnessVal) editBrightnessVal.textContent = b + "%";
+        if (editContrastVal) editContrastVal.textContent = c + "%";
+      }
+
+      function syncEditPreviewRotation() {
+        var deg = editRotation ? Number(editRotation.value) : 0;
+        if (editPreviewRot) {
+          editPreviewRot.style.transform = "rotate(" + deg + "deg)";
+        }
+        if (editRotationVal) editRotationVal.textContent = deg + "°";
+      }
+
+      function openEditDialog() {
+        if (!dialog || !editPreview || img.style.display === "none") return;
+        editPreview.src = img.src;
+        if (editBrightness) editBrightness.value = "100";
+        if (editContrast) editContrast.value = "100";
+        if (editRotation) editRotation.value = "0";
+        syncEditPreviewFilters();
+        syncEditPreviewRotation();
+        if (dialog.showModal) {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute("open", "");
+        }
+      }
+
+      function closeEditDialog() {
+        if (!dialog) return;
+        if (dialog.close) {
+          dialog.close();
+        } else {
+          dialog.removeAttribute("open");
+        }
+      }
+
+      function applyEditsToCanvas(done) {
+        var image = new Image();
+        image.onload = function () {
+          var b = editBrightness ? Number(editBrightness.value) : 100;
+          var c = editContrast ? Number(editContrast.value) : 100;
+          var deg = editRotation ? Number(editRotation.value) : 0;
+          var rad = (deg * Math.PI) / 180;
+          var sw = image.naturalWidth;
+          var sh = image.naturalHeight;
+          if (sw < 1 || sh < 1) {
+            done(null);
+            return;
+          }
+          var dw = Math.abs(sw * Math.cos(rad)) + Math.abs(sh * Math.sin(rad));
+          var dh = Math.abs(sw * Math.sin(rad)) + Math.abs(sh * Math.cos(rad));
+          var canvas = document.createElement("canvas");
+          canvas.width = Math.ceil(dw);
+          canvas.height = Math.ceil(dh);
+          var ctx = canvas.getContext("2d");
+          if (!ctx) {
+            done(null);
+            return;
+          }
+          ctx.filter = "brightness(" + b + "%) contrast(" + c + "%)";
+          ctx.translate(canvas.width / 2, canvas.height / 2);
+          ctx.rotate(rad);
+          ctx.drawImage(image, -sw / 2, -sh / 2);
+          var jpeg = canvas.toDataURL("image/jpeg", 0.92);
+          compressDataUrl(jpeg, 1600, 0.88, done);
+        };
+        image.onerror = function () {
+          done(null);
+        };
+        image.src = img.src;
+      }
+
+      function initFromStorageOrProbe() {
+        var saved = null;
+        try {
+          saved = localStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
+        if (saved && saved.indexOf("data:image") === 0) {
+          img.onload = function () {
+            showOk();
+          };
+          img.onerror = function () {
+            try {
+              localStorage.removeItem(STORAGE_KEY);
+            } catch (e2) {}
+            loadDefaultProfilePhoto();
+          };
+          img.src = saved;
+          img.alt = "배우 임승준 프로필 메인 사진";
+          if (img.complete && img.naturalWidth > 0) showOk();
+          return;
+        }
+        img.onload = function () {
+          showOk();
+        };
+        img.onerror = function () {
+          showVideoOnly();
+        };
+        if (img.complete && img.naturalWidth > 0) showOk();
+      }
+
+      initFromStorageOrProbe();
+
+      if (btnPick && fileInput) {
+        btnPick.addEventListener("click", function () {
+          fileInput.click();
+        });
+      }
+      if (fileInput) {
+        fileInput.addEventListener("change", function () {
+          var f = fileInput.files && fileInput.files[0];
+          if (f) loadFromFile(f);
+          fileInput.value = "";
+        });
+      }
+      if (btnEdit) {
+        btnEdit.addEventListener("click", function () {
+          openEditDialog();
+        });
+      }
+      if (btnReset) {
+        btnReset.addEventListener("click", function () {
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch (e) {}
+          loadDefaultProfilePhoto();
+        });
+      }
+
+      ["dragenter", "dragover", "dragleave", "drop"].forEach(function (evName) {
+        wrap.addEventListener(evName, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+      });
+      wrap.addEventListener("dragenter", function () {
+        wrap.classList.add("profile-split__photo--drag");
+      });
+      wrap.addEventListener("dragleave", function (e) {
+        var related = e.relatedTarget;
+        if (related && wrap.contains(related)) return;
+        wrap.classList.remove("profile-split__photo--drag");
+      });
+      wrap.addEventListener("drop", function (e) {
+        wrap.classList.remove("profile-split__photo--drag");
+        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) loadFromFile(f);
+      });
+
+      if (editBrightness) {
+        editBrightness.addEventListener("input", function () {
+          syncEditPreviewFilters();
+        });
+      }
+      if (editContrast) {
+        editContrast.addEventListener("input", function () {
+          syncEditPreviewFilters();
+        });
+      }
+      if (editRotation) {
+        editRotation.addEventListener("input", function () {
+          syncEditPreviewRotation();
+        });
+      }
+      if (btnCancel) {
+        btnCancel.addEventListener("click", function () {
+          closeEditDialog();
+        });
+      }
+      if (btnApply) {
+        btnApply.addEventListener("click", function () {
+          applyEditsToCanvas(function (out) {
+            if (!out) {
+              window.alert("편집을 적용하지 못했습니다.");
+              return;
+            }
+            applyImageDataUrl(out);
+            closeEditDialog();
+          });
+        });
+      }
+    })();
+
+    (function () {
+      var details = document.getElementById("profile-photos-details");
+      var summary = details && details.querySelector("summary");
+      var panel = document.getElementById("profile-photos-panel");
+      var grid = document.getElementById("profile-photos");
+      if (!details || !summary || !panel || !grid) return;
+
+      function syncAria() {
+        var expanded = details.classList.contains("profile-photos-details--expanded");
+        summary.setAttribute("aria-expanded", expanded ? "true" : "false");
+      }
+
+      function measurePreviewHeight() {
+        var first = grid.querySelector(".thumb--photo");
+        if (!first) return;
+        var gStyle = window.getComputedStyle(grid);
+        var padTop = parseFloat(gStyle.paddingTop) || 0;
+        var padBottom = parseFloat(gStyle.paddingBottom) || 0;
+        var h = first.offsetHeight;
+        panel.style.setProperty("--profile-photos-panel-max", padTop + h + padBottom + "px");
+      }
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        details.open = true;
+        details.classList.toggle("profile-photos-details--expanded");
+        syncAria();
+        if (!details.classList.contains("profile-photos-details--expanded")) {
+          measurePreviewHeight();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (!details.classList.contains("profile-photos-details--expanded")) {
+          measurePreviewHeight();
+        }
+      });
+
+      window.addEventListener("load", measurePreviewHeight);
+      if (document.readyState === "complete") {
+        measurePreviewHeight();
+      } else {
+        document.addEventListener("DOMContentLoaded", measurePreviewHeight);
+      }
+      var firstThumbImg = grid.querySelector(".thumb--photo img");
+      if (firstThumbImg && !firstThumbImg.complete) {
+        firstThumbImg.addEventListener("load", measurePreviewHeight);
+      }
+      syncAria();
+    })();
+
+    (function () {
+      var btn = document.getElementById("nav-business-btn");
+      var menu = document.getElementById("nav-business-menu");
+      if (!btn || !menu) return;
+
+      function closeMenu() {
+        menu.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      }
+
+      function toggleMenu() {
+        var open = menu.hidden;
+        menu.hidden = !open;
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      document.addEventListener("click", function (e) {
+        if (btn.contains(e.target) || menu.contains(e.target)) return;
+        closeMenu();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMenu();
+        });
+      });
+    })();
+
+    (function () {
+      var btn = document.getElementById("clips-action-toggle");
+      var grid = document.getElementById("clips-action-grid");
+      if (!btn || !grid) return;
+
+      btn.addEventListener("click", function () {
+        var collapsed = grid.classList.toggle("is-collapsed");
+        btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      });
+    })();
+
+    (function () {
+      var STORAGE_KEY = "imseungjun_cliprows_v1";
+      var PREFIX = {
+        action: "액션",
+        acting: "연기",
+        ad: "광고",
+        mocap: "모캡",
+        vlog: "VLOG",
+        profile: "프로필",
+      };
+      var DEFAULTS = {
+        action: [],
+        acting: [],
+        ad: [],
+        mocap: [],
+        vlog: [],
+        profile: [],
+      };
+
+      function parseYoutubeId(raw) {
+        var s = (raw || "").trim();
+        if (!s || s === "#") return null;
+        if (!/^https?:\/\//i.test(s)) s = "https://" + s;
+        try {
+          var u = new URL(s);
+          var host = u.hostname.replace(/^www\./i, "").toLowerCase();
+          if (host === "youtu.be") {
+            var id = u.pathname.split("/").filter(Boolean)[0];
+            return id ? id.split("?")[0].slice(0, 11) : null;
+          }
+          if (host === "youtube.com" || host === "m.youtube.com") {
+            var v = u.searchParams.get("v");
+            if (v) return v.slice(0, 11);
+            var parts = u.pathname.split("/").filter(Boolean);
+            var si = parts.indexOf("shorts");
+            if (si >= 0 && parts[si + 1]) return parts[si + 1].split("?")[0].slice(0, 11);
+            var ei = parts.indexOf("embed");
+            if (ei >= 0 && parts[ei + 1]) return parts[ei + 1].split("?")[0].slice(0, 11);
+          }
+        } catch (e) {}
+        return null;
+      }
+
+      function youtubeThumbUrl(vid) {
+        return "https://img.youtube.com/vi/" + vid + "/hqdefault.jpg";
+      }
+
+      function loadAll() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function saveAll(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {}
+      }
+
+      function getItems(cat) {
+        var all = loadAll();
+        if (all && Object.prototype.hasOwnProperty.call(all, cat) && Array.isArray(all[cat])) {
+          return all[cat].map(function (x) {
+            return { url: x.url || "#", label: x.label || "" };
+          });
+        }
+        return DEFAULTS[cat] ? DEFAULTS[cat].map(function (x) {
+          return { url: x.url, label: x.label };
+        }) : [];
+      }
+
+      function looksLikeImageUrl(s) {
+        return /\.(png|jpe?g|webp|gif)(\?|#|$)/i.test(s || "");
+      }
+
+      function setItems(cat, items) {
+        var all = loadAll() || {};
+        all[cat] = items;
+        saveAll(all);
+      }
+
+      function moveItem(cat, from, to) {
+        var items = getItems(cat);
+        if (from === to || from < 0 || to < 0 || from >= items.length) return;
+        var copy = items.slice();
+        var moved = copy.splice(from, 1)[0];
+        copy.splice(to, 0, moved);
+        setItems(cat, copy);
+      }
+
+      function editItem(cat, index) {
+        var items = getItems(cat);
+        var item = items[index];
+        if (!item) return;
+        var u = window.prompt("링크 주소 (https://…)", item.url === "#" ? "" : item.url);
+        if (u === null) return;
+        u = (u || "").trim() || "#";
+        var lab = window.prompt("표시 이름", item.label);
+        if (lab === null) return;
+        lab = (lab || "").trim();
+        items[index] = { url: u, label: lab || item.label };
+        setItems(cat, items);
+        render(cat);
+      }
+
+      function addItem(cat) {
+        var items = getItems(cat);
+        var u = window.prompt(
+          "추가할 링크 주소를 입력하세요.\n(예: https://youtu.be/… 또는 https://…)",
+          ""
+        );
+        if (u === null) return;
+        u = (u || "").trim();
+        if (!u) {
+          window.alert("링크가 비어 있으면 추가할 수 없습니다.");
+          return;
+        }
+        if (!/^https?:\/\//i.test(u) && !/^mailto:/i.test(u)) {
+          u = "https://" + u.replace(/^\/+/, "");
+        }
+        var p = PREFIX[cat] || "클립";
+        var n = items.length + 1;
+        var autoLabel = p + " " + (n < 10 ? "0" : "") + n;
+        var labIn = window.prompt("썸네일에 보일 이름 (비우면 " + autoLabel + ")", autoLabel);
+        if (labIn === null) return;
+        var label = (labIn || "").trim() || autoLabel;
+        items.push({ url: u, label: label });
+        setItems(cat, items);
+        render(cat);
+      }
+
+      function renderActionCards(el, cat) {
+        var items = getItems(cat);
+        el.innerHTML = "";
+
+        var addWrap = document.createElement("div");
+        addWrap.className = "clip-item-wrap-action clip-item-wrap-action--add clip-item";
+        addWrap.setAttribute("role", "listitem");
+        var addInner = document.createElement("button");
+        addInner.type = "button";
+        addInner.className = "clip-card clip-card--addtile";
+        addInner.setAttribute("aria-label", "액션 클립 링크 추가");
+        addInner.innerHTML =
+          '<span class="clip-card__thumb clip-card__thumb--add"><span class="clip-card__add-plus">+</span></span><div class="clip-card__meta"><span class="clip-card__title">링크 추가</span><span class="clip-card__source">YouTube·URL</span></div>';
+        addInner.addEventListener("click", function () {
+          addItem(cat);
+        });
+        addWrap.appendChild(addInner);
+        el.appendChild(addWrap);
+
+        items.forEach(function (item, index) {
+          var wrap = document.createElement("div");
+          wrap.className = "clip-item-wrap-action clip-item";
+          wrap.setAttribute("draggable", "true");
+          wrap.setAttribute("role", "listitem");
+          wrap.dataset.index = String(index);
+
+          var safeUrl = item.url && item.url !== "#" ? item.url : "#";
+          var ytId = parseYoutubeId(safeUrl);
+
+          var a = document.createElement("a");
+          a.className = "clip-card";
+          a.href = safeUrl;
+          if (safeUrl !== "#") {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          } else {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              editItem(cat, index);
+            });
+          }
+
+          var thumb = document.createElement("div");
+          thumb.className = "clip-card__thumb";
+          var img = document.createElement("img");
+          img.className = "clip-card__img";
+          img.alt = "";
+          img.loading = "lazy";
+          img.decoding = "async";
+          if (ytId) {
+            img.src = youtubeThumbUrl(ytId);
+          } else if (safeUrl !== "#" && looksLikeImageUrl(safeUrl)) {
+            img.src = safeUrl;
+          } else {
+            img.style.display = "none";
+            thumb.classList.add("clip-card__thumb--empty");
+          }
+          img.addEventListener("error", function () {
+            img.style.display = "none";
+            thumb.classList.add("clip-card__thumb--empty");
+          });
+
+          var overlay = document.createElement("span");
+          overlay.className = "clip-card__overlay";
+          overlay.setAttribute("aria-hidden", "true");
+          overlay.innerHTML = '<span class="clip-card__play"></span>';
+
+          thumb.appendChild(img);
+          thumb.appendChild(overlay);
+
+          var meta = document.createElement("div");
+          meta.className = "clip-card__meta";
+          var title = document.createElement("span");
+          title.className = "clip-card__title";
+          title.textContent = item.label || "";
+          var source = document.createElement("span");
+          source.className = "clip-card__source";
+          source.textContent = ytId ? "YouTube" : safeUrl !== "#" ? "Link" : "—";
+
+          meta.appendChild(title);
+          meta.appendChild(source);
+          a.appendChild(thumb);
+          a.appendChild(meta);
+
+          var editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "clip-item__edit clip-item__edit--card";
+          editBtn.setAttribute("aria-label", "링크 수정");
+          editBtn.title = "링크 수정";
+          editBtn.textContent = "✎";
+          editBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            editItem(cat, index);
+          });
+
+          wrap.appendChild(a);
+          wrap.appendChild(editBtn);
+
+          wrap.addEventListener("dragstart", function (e) {
+            e.dataTransfer.setData("text/plain", String(index));
+            e.dataTransfer.effectAllowed = "move";
+            wrap.classList.add("clip-item--dragging");
+          });
+          wrap.addEventListener("dragend", function () {
+            wrap.classList.remove("clip-item--dragging");
+          });
+
+          el.appendChild(wrap);
+        });
+      }
+
+      function renderProfileSquare(el, cat) {
+        var items = getItems(cat);
+        el.innerHTML = "";
+
+        items.forEach(function (item, index) {
+          var wrap = document.createElement("div");
+          wrap.className = "clip-item-wrap clip-item clip-item--profile";
+          wrap.setAttribute("draggable", "true");
+          wrap.setAttribute("role", "listitem");
+          wrap.dataset.index = String(index);
+
+          var thumb = document.createElement("div");
+          thumb.className = "thumb thumb--photo";
+
+          var safeUrl = item.url && item.url !== "#" ? item.url : "#";
+          var ytId = parseYoutubeId(safeUrl);
+
+          var a = document.createElement("a");
+          a.className = "clip-item__link clip-item__link--profile";
+          a.href = safeUrl;
+          a.setAttribute("aria-label", item.label || "프로필 링크");
+          if (safeUrl !== "#") {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          } else {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              editItem(cat, index);
+            });
+          }
+
+          if (ytId) {
+            var img = document.createElement("img");
+            img.className = "thumb__img clip-item__img";
+            img.src = youtubeThumbUrl(ytId);
+            img.alt = "";
+            img.loading = "lazy";
+            a.appendChild(img);
+          } else if (safeUrl !== "#") {
+            var img2 = document.createElement("img");
+            img2.className = "thumb__img clip-item__img";
+            img2.src = safeUrl;
+            img2.alt = "";
+            img2.loading = "lazy";
+            img2.addEventListener("error", function () {
+              img2.remove();
+              var ph = document.createElement("span");
+              ph.className = "clip-item__ph clip-item__ph--profile";
+              ph.textContent = "링크";
+              a.appendChild(ph);
+            });
+            a.appendChild(img2);
+          } else {
+            var ph = document.createElement("span");
+            ph.className = "clip-item__ph clip-item__ph--profile";
+            ph.textContent = "링크";
+            a.appendChild(ph);
+          }
+
+          var cap = document.createElement("p");
+          cap.className = "clip-item__caption clip-item__caption--profile";
+          cap.textContent = item.label || "";
+
+          var editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "clip-item__edit clip-item__edit--profile";
+          editBtn.setAttribute("aria-label", "링크 수정");
+          editBtn.title = "링크 수정";
+          editBtn.textContent = "✎";
+          editBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            editItem(cat, index);
+          });
+
+          thumb.appendChild(a);
+          thumb.appendChild(editBtn);
+          wrap.appendChild(thumb);
+          wrap.appendChild(cap);
+
+          wrap.addEventListener("dragstart", function (e) {
+            e.dataTransfer.setData("text/plain", String(index));
+            e.dataTransfer.effectAllowed = "move";
+            wrap.classList.add("clip-item--dragging");
+          });
+          wrap.addEventListener("dragend", function () {
+            wrap.classList.remove("clip-item--dragging");
+          });
+
+          el.appendChild(wrap);
+        });
+
+        var addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "thumb thumb--clip thumb--add";
+        addBtn.setAttribute("role", "listitem");
+        addBtn.setAttribute("aria-label", "프로필 링크 추가");
+        addBtn.title = "링크 추가";
+        addBtn.innerHTML = '<span class="thumb__add" aria-hidden="true">+</span>';
+        addBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          addItem(cat);
+        });
+        el.appendChild(addBtn);
+      }
+
+      function renderCircleClips(el, cat) {
+        var items = getItems(cat);
+        el.innerHTML = "";
+
+        items.forEach(function (item, index) {
+          var wrap = document.createElement("div");
+          wrap.className = "clip-item-wrap clip-item";
+          wrap.setAttribute("draggable", "true");
+          wrap.setAttribute("role", "listitem");
+          wrap.dataset.index = String(index);
+
+          var thumb = document.createElement("div");
+          thumb.className = "thumb thumb--clip";
+
+          var safeUrl = item.url && item.url !== "#" ? item.url : "#";
+          var ytId = parseYoutubeId(safeUrl);
+
+          var a = document.createElement("a");
+          a.className = "clip-item__link";
+          a.href = safeUrl;
+          if (safeUrl !== "#") {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          } else {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              editItem(cat, index);
+            });
+          }
+
+          if (ytId) {
+            var img = document.createElement("img");
+            img.className = "clip-item__img";
+            img.src = youtubeThumbUrl(ytId);
+            img.alt = "";
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.addEventListener("error", function () {
+              img.remove();
+              var ph = document.createElement("span");
+              ph.className = "clip-item__ph";
+              ph.textContent = "영상";
+              a.appendChild(ph);
+            });
+            a.appendChild(img);
+          } else {
+            var ph = document.createElement("span");
+            ph.className = "clip-item__ph";
+            ph.textContent = safeUrl === "#" ? "링크 입력" : "미리보기 없음";
+            a.appendChild(ph);
+          }
+
+          var caption = document.createElement("p");
+          caption.className = "clip-item__caption";
+          caption.textContent = item.label || "";
+
+          var editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "clip-item__edit";
+          editBtn.setAttribute("aria-label", "링크 수정");
+          editBtn.title = "링크 수정";
+          editBtn.textContent = "✎";
+          editBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            editItem(cat, index);
+          });
+
+          thumb.appendChild(a);
+          thumb.appendChild(editBtn);
+          wrap.appendChild(thumb);
+          wrap.appendChild(caption);
+
+          wrap.addEventListener("dragstart", function (e) {
+            e.dataTransfer.setData("text/plain", String(index));
+            e.dataTransfer.effectAllowed = "move";
+            wrap.classList.add("clip-item--dragging");
+          });
+          wrap.addEventListener("dragend", function () {
+            wrap.classList.remove("clip-item--dragging");
+          });
+
+          el.appendChild(wrap);
+        });
+
+        var addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "thumb thumb--clip thumb--add";
+        addBtn.setAttribute("role", "listitem");
+        var addAria = {
+          action: "액션 클립 링크 추가",
+          acting: "연기 클립 링크 추가",
+          ad: "광고 클립 링크 추가",
+          mocap: "모션캡쳐 클립 링크 추가",
+          vlog: "브이로그 클립 링크 추가",
+          profile: "프로필 링크 추가",
+        };
+        addBtn.setAttribute("aria-label", addAria[cat] || "클립 링크 추가");
+        addBtn.title = "링크 추가";
+        addBtn.innerHTML = '<span class="thumb__add" aria-hidden="true">+</span>';
+        addBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          addItem(cat);
+        });
+        el.appendChild(addBtn);
+      }
+
+      function render(cat) {
+        var el = document.querySelector('[data-clip-cat="' + cat + '"]');
+        if (!el) return;
+        if (cat === "action" || el.getAttribute("data-clip-layout") === "card") {
+          renderActionCards(el, cat);
+          return;
+        }
+        if (cat === "profile") {
+          renderProfileSquare(el, cat);
+          return;
+        }
+        renderCircleClips(el, cat);
+      }
+
+      function bindDrop(cat, el) {
+        el.addEventListener("dragover", function (e) {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = "move";
+        });
+        el.addEventListener("drop", function (e) {
+          var dropEl = e.target.closest(".clip-item");
+          if (!dropEl) return;
+          e.preventDefault();
+          var from = parseInt(e.dataTransfer.getData("text/plain"), 10);
+          var to = parseInt(dropEl.dataset.index, 10);
+          if (isNaN(from) || isNaN(to) || from === to) return;
+          moveItem(cat, from, to);
+          render(cat);
+        });
+      }
+
+      document.querySelectorAll("[data-clip-cat]").forEach(function (row) {
+        var cat = row.getAttribute("data-clip-cat");
+        if (!cat) return;
+        render(cat);
+        bindDrop(cat, row);
+      });
+    })();
+  </script>
+</body>
+</html>

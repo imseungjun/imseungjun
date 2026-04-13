@@ -16,7 +16,8 @@
 | `.git/` | (숨김) Git 이력·GitHub 원격 주소 — **통째로 복사해야 이어서 커밋 가능** |
 | `.github/` | (숨김) GitHub Pages 배포 워크플로 |
 | `USB-다른PC-작업가이드.md` | USB 이동·다른 PC·Cursor 작업 시 체크리스트 |
-| `Pages-켜는방법.md` | GitHub Pages 404일 때 **Settings에서 켜는 순서** |
+| `Pages-켜는방법.md` | GitHub Pages 404일 때 **웹에서 켜는 순서** |
+| `Pages-자동설정.ps1` | **GITHUB_TOKEN** 으로 API로 Pages 켜기 (PowerShell) |
 
 ### `assets/` 안에 있는 것
 

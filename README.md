@@ -4,6 +4,8 @@
 
 **USB·다른 PC에서 Cursor로 이어서 작업**할 때는 **`USB-다른PC-작업가이드.md`** 를 꼭 읽어 주세요. (숨김 폴더 `.git` 포함, `localStorage` 한계 등)
 
+**`https://imseungjun.github.io/imseungjun/` 가 404이면** → GitHub에서 **Pages를 아직 켜지 않은 경우**가 많습니다. **`Pages-켜는방법.md`** 를 순서대로 따라 하세요.
+
 ## 폴더 구성
 
 | 파일 / 폴더 | 설명 |
@@ -14,6 +16,7 @@
 | `.git/` | (숨김) Git 이력·GitHub 원격 주소 — **통째로 복사해야 이어서 커밋 가능** |
 | `.github/` | (숨김) GitHub Pages 배포 워크플로 |
 | `USB-다른PC-작업가이드.md` | USB 이동·다른 PC·Cursor 작업 시 체크리스트 |
+| `Pages-켜는방법.md` | GitHub Pages 404일 때 **Settings에서 켜는 순서** |
 
 ### `assets/` 안에 있는 것
 

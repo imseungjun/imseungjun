@@ -38,6 +38,39 @@
 
 오프라인에서는 폰트·YouTube가 빠질 수 있습니다. 페이지 자체는 로컬 파일만으로 열립니다.
 
+## 인터넷 어디서나 링크로 보기 (배포)
+
+이 프로젝트는 **빌드 없이** `index.html` + `assets/`만 있으면 됩니다. **공개 웹 주소**를 만들려면 아래 중 하나를 쓰면 됩니다.
+
+### 방법 A — GitHub Pages (무료, 고정 주소)
+
+1. [GitHub](https://github.com)에 로그인하고 **새 저장소(repository)** 를 만듭니다. (이름은 영문·숫자 권장, 예: `im-seungjun-page`)
+2. PC에서 이 폴더를 Git 저장소로 연 뒤 GitHub에 **push** 합니다.  
+   (이미 이 폴더에 `.git`이 있다면 원격만 추가하면 됩니다.)
+3. GitHub 저장소 **Settings → Pages** 로 이동합니다.
+4. **Build and deployment** 의 **Source**를 **GitHub Actions** 로 선택합니다.
+5. **Actions** 탭에서 워크플로 **Deploy to GitHub Pages** 가 성공하면, 몇 분 뒤 다음 형태의 주소로 접속할 수 있습니다.  
+   `https://<사용자이름>.github.io/<저장소이름>/`  
+   예: 저장소가 `https://github.com/myuser/im-seungjun-page` 이면  
+   `https://myuser.github.io/im-seungjun-page/`
+
+이 저장소에는 `.github/workflows/deploy-github-pages.yml` 이 포함되어 있어, `master` 또는 `main` 브랜치에 **push** 할 때마다 사이트가 자동으로 갱신됩니다.
+
+### 방법 B — Netlify Drop (가장 빠름)
+
+1. [Netlify Drop](https://app.netlify.com/drop) 에 접속합니다.
+2. **이 폴더 전체**를 브라우저 창에 끌어다 놓습니다.
+3. 임시 주소(예: `random-name-123.netlify.app`)가 바로 생깁니다. **고정 도메인·HTTPS**는 Netlify 가입 후 사이트 설정에서 연결할 수 있습니다.
+
+### 방법 C — Cloudflare Pages / Vercel 등
+
+같은 정적 파일을 업로드하는 호스팅이면 대부분 동작합니다. 루트 디렉터리에 `index.html` 이 있게 배포하면 됩니다.
+
+### 배포 후 참고
+
+- **클립 편집 내용**(`localStorage`)은 **각 방문자 브라우저**에만 저장됩니다. “누구나 같은 목록”을 보이게 하려면 나중에 서버·CMS가 필요합니다.
+- 이미지·CSS 경로는 **상대 경로**라 GitHub Pages의 `https://…/저장소이름/` 하위 경로에서도 동작하도록 되어 있습니다.
+
 ## 작업 이어가기 팁
 
 - 스타일 전역 변수·색은 `styles.css` 상단 `:root` 참고.

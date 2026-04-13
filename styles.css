@@ -438,6 +438,36 @@ cite {
   color: var(--muted);
 }
 
+.clip-persist-hint {
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-soft) 40%, transparent);
+  max-width: 52rem;
+}
+
+.clip-persist-hint__btn {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  padding: 0.35rem 0.75rem;
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--bg-elev) 80%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.clip-persist-hint__btn:hover {
+  border-color: color-mix(in srgb, var(--mustang) 40%, var(--border));
+  color: var(--accent-hover);
+}
+
 .zone__subhead {
   margin: 2.5rem 0 1rem;
 }

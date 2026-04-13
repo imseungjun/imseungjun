@@ -311,6 +311,14 @@
       <div class="grid grid--clips clip-row" id="clip-row-vlog" data-clip-cat="vlog" role="list" aria-label="브이로그 클립 목록"></div>
     </section>
 
+    <p class="clip-persist-hint">
+      연기·광고·액션 등 원형 클립은 링크를 추가·수정·삭제하면 <strong>즉시 이 브라우저에 자동 저장</strong>됩니다. (별도
+      「저장」 버튼은 없습니다. 다른 PC·브라우저에는 기본적으로 이어지지 않습니다.)
+      <button type="button" class="clip-persist-hint__btn" id="clip-backup-json">
+        클립 목록 백업(JSON)
+      </button>
+    </p>
+
     <section id="essay-zone" class="zone">
       <div class="zone__head">
         <h2 class="zone__title"><span class="zone__mark">::</span> 책·에세이</h2>
@@ -1563,6 +1571,25 @@
         render(cat);
         bindDrop(cat, row);
       });
+
+      var backupBtn = document.getElementById("clip-backup-json");
+      if (backupBtn) {
+        backupBtn.addEventListener("click", function () {
+          try {
+            var raw = localStorage.getItem(STORAGE_KEY) || "{}";
+            var blob = new Blob([raw], {
+              type: "application/json;charset=utf-8",
+            });
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "imseungjun_cliprows_backup.json";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(a.href);
+          } catch (e) {}
+        });
+      }
     })();
   </script>
 </body>

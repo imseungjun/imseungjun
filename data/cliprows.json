@@ -1,0 +1,32 @@
+{
+  "action": [
+    { "url": "https://www.youtube.com/watch?v=XeTl6mrA1e8&t=24s", "label": "액션 클립 01" },
+    { "url": "https://www.youtube.com/watch?v=6ZkiGFDn02Y", "label": "액션 클립 02" },
+    { "url": "https://www.youtube.com/watch?v=89psqV3IIno", "label": "액션 클립 03" },
+    { "url": "https://www.youtube.com/watch?v=6_ywDE0Jsb4", "label": "액션 클립 04" },
+    { "url": "https://www.youtube.com/watch?v=Q0FsodfWqgU", "label": "액션 클립 05" },
+    { "url": "https://www.youtube.com/watch?v=rzZq-vBX6oY", "label": "액션 클립 06" },
+    { "url": "https://www.youtube.com/watch?v=8OzFIGwsPZI", "label": "액션 클립 07" },
+    { "url": "https://www.youtube.com/watch?v=bACczlADI_s", "label": "액션 클립 08" },
+    { "url": "https://www.youtube.com/watch?v=ElRmXn1mNPU&t=4s", "label": "액션 클립 09" },
+    { "url": "https://www.youtube.com/watch?v=7zQCN2S4nH4", "label": "액션 클립 10" }
+  ],
+  "acting": [
+    { "url": "https://www.youtube.com/watch?v=XeTl6mrA1e8", "label": "[연기연습] 감정훈련" },
+    { "url": "https://www.youtube.com/watch?v=6ZkiGFDn02Y", "label": "연기 02" },
+    { "url": "https://www.youtube.com/watch?v=89psqV3IIno", "label": "연기 03" }
+  ],
+  "ad": [
+    { "url": "https://www.youtube.com/watch?v=XeTl6mrA1e8", "label": "광고 01" },
+    { "url": "https://www.youtube.com/watch?v=6ZkiGFDn02Y", "label": "광고 02" }
+  ],
+  "mocap": [
+    { "url": "https://www.youtube.com/watch?v=89psqV3IIno", "label": "모캡 01" },
+    { "url": "https://www.youtube.com/watch?v=XeTl6mrA1e8", "label": "모캡 02" }
+  ],
+  "vlog": [
+    { "url": "https://www.youtube.com/watch?v=6ZkiGFDn02Y", "label": "VLOG 01" },
+    { "url": "https://www.youtube.com/watch?v=89psqV3IIno", "label": "VLOG 02" }
+  ],
+  "profile": []
+}

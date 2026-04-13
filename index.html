@@ -1561,34 +1561,62 @@
         });
       }
 
-      migrateEmptyActionArrayToDefaults();
-      migrateEmptyOtherClipArraysToDefaults();
-      migrateAdClipsToActionStorage();
+      function bootstrapClipRows() {
+        migrateEmptyActionArrayToDefaults();
+        migrateEmptyOtherClipArraysToDefaults();
+        migrateAdClipsToActionStorage();
 
-      document.querySelectorAll("[data-clip-cat]").forEach(function (row) {
-        var cat = row.getAttribute("data-clip-cat");
-        if (!cat) return;
-        render(cat);
-        bindDrop(cat, row);
-      });
-
-      var backupBtn = document.getElementById("clip-backup-json");
-      if (backupBtn) {
-        backupBtn.addEventListener("click", function () {
-          try {
-            var raw = localStorage.getItem(STORAGE_KEY) || "{}";
-            var blob = new Blob([raw], {
-              type: "application/json;charset=utf-8",
-            });
-            var a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "imseungjun_cliprows_backup.json";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(a.href);
-          } catch (e) {}
+        document.querySelectorAll("[data-clip-cat]").forEach(function (row) {
+          var cat = row.getAttribute("data-clip-cat");
+          if (!cat) return;
+          render(cat);
+          bindDrop(cat, row);
         });
+
+        var backupBtn = document.getElementById("clip-backup-json");
+        if (backupBtn) {
+          backupBtn.addEventListener("click", function () {
+            try {
+              var raw = localStorage.getItem(STORAGE_KEY) || "{}";
+              var blob = new Blob([raw], {
+                type: "application/json;charset=utf-8",
+              });
+              var a = document.createElement("a");
+              a.href = URL.createObjectURL(blob);
+              a.download = "imseungjun_cliprows_backup.json";
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              URL.revokeObjectURL(a.href);
+            } catch (e) {}
+          });
+        }
+      }
+
+      /** GitHub Pages 등: localStorage 가 비어 있으면 data/cliprows.json 을 불러와 공개 목록으로 채움 */
+      var seededFromPublicJson = false;
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        fetch("data/cliprows.json", { cache: "no-store" })
+          .then(function (r) {
+            return r.ok ? r.json() : null;
+          })
+          .then(function (data) {
+            if (data && typeof data === "object") {
+              saveAll(data);
+              seededFromPublicJson = true;
+            }
+          })
+          .catch(function () {})
+          .finally(function () {
+            if (seededFromPublicJson) {
+              try {
+                localStorage.setItem(MIGRATE_AD_TO_ACTION_FLAG, "1");
+              } catch (e) {}
+            }
+            bootstrapClipRows();
+          });
+      } else {
+        bootstrapClipRows();
       }
     })();
   </script>

@@ -877,7 +877,18 @@
         profile: "프로필",
       };
       var DEFAULTS = {
-        action: [],
+        action: [
+          { url: "https://www.youtube.com/watch?v=XeTl6mrA1e8&t=24s", label: "액션 클립 01" },
+          { url: "https://www.youtube.com/watch?v=6ZkiGFDn02Y", label: "액션 클립 02" },
+          { url: "https://www.youtube.com/watch?v=89psqV3IIno", label: "액션 클립 03" },
+          { url: "https://www.youtube.com/watch?v=6_ywDE0Jsb4", label: "액션 클립 04" },
+          { url: "https://www.youtube.com/watch?v=Q0FsodfWqgU", label: "액션 클립 05" },
+          { url: "https://www.youtube.com/watch?v=rzZq-vBX6oY", label: "액션 클립 06" },
+          { url: "https://www.youtube.com/watch?v=8OzFIGwsPZI", label: "액션 클립 07" },
+          { url: "https://www.youtube.com/watch?v=bACczlADI_s", label: "액션 클립 08" },
+          { url: "https://www.youtube.com/watch?v=ElRmXn1mNPU&t=4s", label: "액션 클립 09" },
+          { url: "https://www.youtube.com/watch?v=7zQCN2S4nH4", label: "액션 클립 10" },
+        ],
         acting: [],
         ad: [],
         mocap: [],
@@ -1018,6 +1029,20 @@
             saveAll(all);
           }
           localStorage.setItem(MIGRATE_AD_TO_ACTION_FLAG, "1");
+        } catch (e) {}
+      }
+
+      /** 예전에 action 을 [] 로만 저장해 둔 브라우저에서 기본 액션 클립이 다시 보이도록 한 번 정리 */
+      var EMPTY_ACTION_RESTORE_FLAG = "imseungjun_cliprows_empty_action_use_defaults_v1";
+      function migrateEmptyActionArrayToDefaults() {
+        try {
+          if (localStorage.getItem(EMPTY_ACTION_RESTORE_FLAG)) return;
+          var all = loadAll();
+          if (!all || !Object.prototype.hasOwnProperty.call(all, "action")) return;
+          if (!Array.isArray(all.action) || all.action.length !== 0) return;
+          delete all.action;
+          saveAll(all);
+          localStorage.setItem(EMPTY_ACTION_RESTORE_FLAG, "1");
         } catch (e) {}
       }
 
@@ -1490,6 +1515,7 @@
         });
       }
 
+      migrateEmptyActionArrayToDefaults();
       migrateAdClipsToActionStorage();
 
       document.querySelectorAll("[data-clip-cat]").forEach(function (row) {

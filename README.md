@@ -64,13 +64,30 @@ Pages 설정 후 공개 주소: `https://imseungjun.github.io/imseungjun/`
 2. PC에서 이 폴더를 Git 저장소로 연 뒤 GitHub에 **push** 합니다.  
    (이미 이 폴더에 `.git`이 있다면 원격만 추가하면 됩니다.)
 3. GitHub 저장소 **Settings → Pages** 로 이동합니다.
-4. **Build and deployment** 의 **Source**를 **GitHub Actions** 로 선택합니다.
-5. **Actions** 탭에서 워크플로 **Deploy to GitHub Pages** 가 성공하면, 몇 분 뒤 다음 형태의 주소로 접속할 수 있습니다.  
-   `https://<사용자이름>.github.io/<저장소이름>/`  
-   예: 저장소가 `https://github.com/myuser/im-seungjun-page` 이면  
-   `https://myuser.github.io/im-seungjun-page/`
+4. **Build and deployment** 에서 아래 **둘 중 하나**만 선택합니다. (처음이면 **①** 을 권장합니다.)
 
-이 저장소에는 `.github/workflows/deploy-github-pages.yml` 이 포함되어 있어, `master` 또는 `main` 브랜치에 **push** 할 때마다 사이트가 자동으로 갱신됩니다.
+   **① 브랜치에서 바로 배포 (가장 단순, 404 해결에 유리)**  
+   - **Source** → **Deploy from a branch**  
+   - **Branch** → `main` 선택, **Folder** → **`/ (root)`** 선택  
+   - **Save** 를 누릅니다.  
+   - 1~3분 뒤 `https://<사용자이름>.github.io/<저장소이름>/` 로 접속해 보세요.  
+   - 이 방식은 **GitHub Actions 없이** 저장소 루트의 `index.html` 을 그대로 올립니다.
+
+   **② GitHub Actions 로 배포 (자동 빌드)**  
+   - **Source** → **GitHub Actions**  
+   - **Actions** 탭에서 **Deploy to GitHub Pages** 워크플로가 **초록색(성공)** 인지 확인합니다.  
+   - 실패(빨간색)면 로그를 열어 오류를 확인하세요.
+
+5. 공개 주소 예시: `https://<사용자이름>.github.io/<저장소이름>/`  
+   (예: `https://imseungjun.github.io/imseungjun/`)
+
+#### `imseungjun.github.io/imseungjun/` 에서 404 (Site not found) 가 나올 때
+
+- **Settings → Pages** 에서 **Source** 가 아직 **None** 이거나, **Actions** 만 켜 두고 워크플로가 한 번도 성공하지 않은 경우**에 자주 발생합니다.  
+- 위 **① Deploy from a branch** 로 바꾸고 `main` / `/(root)` 로 저장한 뒤 2~3분 기다려 보세요.  
+- **Actions** 를 쓰는 경우와 **Branch** 를 쓰는 경우는 **동시에 하나만** 쓰는 것이 좋습니다. 먼저 **①** 으로 사이트가 뜨는지 확인한 뒤 필요하면 **②** 로 바꿀 수 있습니다.
+
+이 저장소에는 `.github/workflows/deploy-github-pages.yml` 이 있어, **GitHub Actions** 를 Source로 쓸 때 `main` 에 **push** 할 때마다 자동 배포를 시도합니다.
 
 ### 방법 B — Netlify Drop (가장 빠름)
 
